@@ -1,6 +1,5 @@
 //SGN your JS code here. If required.
-document.addEventListener('DOMContentLoaded', function() {
-    // Your code here
+
     const output = document.getElementById("output");
     const btn = document.getElementById("download-images-button");
 
@@ -24,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const displayImages = (images) => {
         images.forEach((image) => {
             const imgElement = document.createElement('img');
-            imgElement.src = image.src;
+            imgElement.src = image.url;
             output.appendChild(imgElement);
         });
     };
@@ -43,4 +42,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // handle btn
     btn.addEventListener('click', loadImage);
-});
