@@ -13,7 +13,7 @@
     const downloadImage = (image) => {
         return new Promise((resolve, reject) => {
             const img = new Image();
-            img.onload = () => resolve(img);
+            img.onload = () => resolve(image);
             img.onerror = () => reject(new Error(`Failed to load image's URL: ${image.url}`));
             img.src = image.url;
         });
@@ -23,8 +23,11 @@
     const displayImages = (images) => {
         images.forEach((image) => {
             const imgElement = document.createElement('img');
-            imgElement.src = image.url;
+            imgElement.setAttribute('src', image.url);
+            imgElement.onload = () => {
             output.appendChild(imgElement);
+        };
+        imgElement.src = image.url;
         });
     };
 
